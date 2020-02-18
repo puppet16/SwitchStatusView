@@ -7,12 +7,15 @@ import android.os.Message;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.luck.switchstatusview.statusview.NoticeStatusView;
+import com.luck.switchstatusview.statusview.IPageStatusView;
+import com.luck.switchstatusview.statusview.NoticeLoadingDotView;
+import com.luck.switchstatusview.statusview.PageStatusParams;
+import com.luck.switchstatusview.statusview.PageStatusView;
 
 public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout mRlContent;
-    private NoticeStatusView mStatusView;
+    private PageStatusView mStatusView;
     private MyHandler mHandler;
 
     @Override
@@ -29,31 +32,47 @@ public class MainActivity extends AppCompatActivity {
     public void showError() {
         mRlContent.setVisibility(View.GONE);
         mStatusView.setVisibility(View.VISIBLE);
-        mStatusView.resetData()
-                .pageType(NoticeStatusView.TYPE_ERROR)
-                .pageListener(new View.OnClickListener() {
+        mStatusView.setPageStatusParams(new PageStatusParams.Builder()
+                .pageType(IPageStatusView.TYPE_ERROR).pageRetryListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showLoading();
                         mHandler.sendEmptyMessageDelayed(3, 2000);
                     }
-                }).apply();
-
+                })
+                .build());
     }
 
     public void showEmpty() {
         mRlContent.setVisibility(View.GONE);
         mStatusView.setVisibility(View.VISIBLE);
-        mStatusView.resetData()
-                .pageType(NoticeStatusView.TYPE_EMPTY)
-                .apply();
+        mStatusView.setPageStatusParams(new PageStatusParams.Builder()
+                .pageType(IPageStatusView.TYPE_EMPTY)
+                .build());
+        mHandler.sendEmptyMessageDelayed(4, 2000);
+    }
+
+    public void showWheelLoading() {
+        mRlContent.setVisibility(View.GONE);
+        mStatusView.setVisibility(View.VISIBLE);
+        mStatusView.setPageStatusParams(new PageStatusParams.Builder()
+                .pageType(IPageStatusView.TYPE_LOADING)
+                .build());
+        mHandler.sendEmptyMessageDelayed(5, 2000);
+    }
+
+    public void showContent() {
+        mRlContent.setVisibility(View.VISIBLE);
+        mStatusView.setVisibility(View.GONE);
     }
 
     public void showLoading() {
         mRlContent.setVisibility(View.GONE);
         mStatusView.setVisibility(View.VISIBLE);
-        mStatusView.resetData().pageType(NoticeStatusView.TYPE_LOADING_LOCAL).apply();
-
+        mStatusView.setPageStatusParams(new PageStatusParams.Builder()
+                .pageType(IPageStatusView.TYPE_LOADING)
+                .pageView(new NoticeLoadingDotView(this), null)
+                .build());
     }
 
 
@@ -74,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 3:
                     reference.showEmpty();
+                    break;
+                case 4:
+                    reference.showWheelLoading();
+                    break;
+                case 5:
+                    reference.showContent();
                     break;
             }
         }

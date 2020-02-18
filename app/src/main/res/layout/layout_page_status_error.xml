@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/notice_empty_ll_root"
-    android:layout_width="wrap_content"
+    android:id="@id/page_error_view_root"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/notice_empty_iv_pic"
+        android:id="@id/page_error_picture_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/ico_view_status_empty" />
 
-
     <TextView
-        android:id="@+id/notice_empty_tv_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@id/page_error_retry_view"
+        android:layout_width="96dp"
+        android:layout_height="33dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="13dp"
-        android:text="@string/view_status_empty_content"
-        android:textColor="#999999"
+        android:background="@drawable/bg_notice_status_error_btn"
+        android:gravity="center"
+        android:text="@string/view_status_error_btn"
+        android:textColor="#FFFFFF"
         android:textSize="13sp" />
 </LinearLayout>

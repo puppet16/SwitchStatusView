@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.luck.switchstatusview.statusview.NoticeLoadingLocalView
+    <com.luck.switchstatusview.statusview.NoticeLoadingDotView
         android:layout_gravity="center"
-        android:id="@+id/notice_loading_local_view"
+        android:id="@+id/page_loading_dot_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </FrameLayout>

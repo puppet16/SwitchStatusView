@@ -24,7 +24,7 @@ import com.luck.switchstatusview.R;
  * 描 述 :消息首页局部等待页面
  * ============================================================
  **/
-public class NoticeLoadingLocalView extends LinearLayout {
+public class NoticeLoadingDotView extends LinearLayout {
     private ImageView mIvLoading1;
     private ImageView mIvLoading2;
     private ImageView mIvLoading3;
@@ -37,27 +37,27 @@ public class NoticeLoadingLocalView extends LinearLayout {
     private CountDownTimer mTimer;
     private int tempI = 1;
 
-    public NoticeLoadingLocalView(Context context) {
+    public NoticeLoadingDotView(Context context) {
         super(context);
         initView();
     }
 
-    public NoticeLoadingLocalView(Context context, @Nullable AttributeSet attrs) {
+    public NoticeLoadingDotView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public NoticeLoadingLocalView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public NoticeLoadingDotView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }
 
     private void initView() {
-        LayoutInflater.from(getContext()).inflate(R.layout.layout_notice_status_loading_local, this);
-        mIvLoading1 = findViewById(R.id.iv_notice_loading_local_1);
-        mIvLoading2 = findViewById(R.id.iv_notice_loading_local_2);
-        mIvLoading3 = findViewById(R.id.iv_notice_loading_local_3);
-        mTvContent = findViewById(R.id.notice_loading_local_tv_content);
+        LayoutInflater.from(getContext()).inflate(R.layout.layout_page_status_loading_dot, this);
+        mIvLoading1 = findViewById(R.id.iv_page_loading_dot_1);
+        mIvLoading2 = findViewById(R.id.iv_page_loading_dot_2);
+        mIvLoading3 = findViewById(R.id.iv_page_loading_dot_3);
+        mTvContent = findViewById(R.id.page_loading_content_view);
     }
 
     /**
@@ -147,6 +147,16 @@ public class NoticeLoadingLocalView extends LinearLayout {
         if (mAnimatorSet3 != null) {
             mAnimatorSet3.cancel();
             mAnimatorSet1 = null;
+        }
+    }
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+        if (visibility == View.VISIBLE){
+           startAnimator();
+        }
+        else if(visibility == INVISIBLE || visibility == GONE){
+            cancelAnimator();
         }
     }
 }

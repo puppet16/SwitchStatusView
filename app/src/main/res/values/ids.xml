@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="page_empty_view_root" type="id"/>
+    <item name="page_empty_content_view" type="id"/>
+    <item name="page_empty_picture_view" type="id"/>
+
+    <item name="page_error_view_root" type="id"/>
+    <item name="page_error_content_view" type="id"/>
+    <item name="page_error_picture_view" type="id"/>
+    <item name="page_error_retry_view" type="id"/>
+
+    <item name="page_loading_view_root" type="id"/>
+    <item name="page_loading_content_view" type="id"/>
+</resources>
