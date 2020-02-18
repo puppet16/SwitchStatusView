@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ViewStub
+        android:id="@+id/vs_status_loading_all"
+        android:layout_width="144dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="190dp"
+        android:layout_centerHorizontal="true"
+        android:inflatedId="@layout/layout_notice_status_loading_all" />
+
+    <ViewStub
+        android:id="@+id/vs_status_loading_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_centerHorizontal="true"
+        android:inflatedId="@layout/layout_notice_status_loading_local_view" />
+
+    <ViewStub
+        android:id="@+id/vs_status_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:inflatedId="@layout/layout_notice_status_error" />
+
+    <ViewStub
+        android:id="@+id/vs_status_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="91dp"
+        android:layout_centerHorizontal="true"
+        android:inflatedId="@layout/layout_notice_status_empty" />
+</RelativeLayout>
