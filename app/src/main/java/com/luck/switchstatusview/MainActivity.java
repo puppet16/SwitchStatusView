@@ -33,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
         mRlContent.setVisibility(View.GONE);
         mStatusView.setVisibility(View.VISIBLE);
         mStatusView.setPageStatusParams(new PageStatusParams.Builder()
-                .pageType(IPageStatusView.TYPE_ERROR).pageRetryListener(new View.OnClickListener() {
+                .pageType(IPageStatusView.TYPE_ERROR)
+                .pageBtnContent("请重试")
+                .pageRetryListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View view) {
                         showLoading();
                         mHandler.sendEmptyMessageDelayed(3, 2000);
                     }

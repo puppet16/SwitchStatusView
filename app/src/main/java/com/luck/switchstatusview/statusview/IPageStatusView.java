@@ -18,7 +18,7 @@ public interface IPageStatusView {
 
     RelativeLayout.LayoutParams DEFAULT_LAYOUT_PARAMS =
             new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                    RelativeLayout.LayoutParams.MATCH_PARENT);
+                    RelativeLayout.LayoutParams.WRAP_CONTENT);
     int TYPE_EMPTY = 1;
     int TYPE_ERROR = 2;
     int TYPE_LOADING = 3;

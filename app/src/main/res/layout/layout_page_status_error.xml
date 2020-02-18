@@ -9,9 +9,19 @@
         android:id="@id/page_error_picture_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="75dp"
         android:src="@drawable/ico_view_status_empty" />
+
+    <TextView
+        android:id="@id/page_error_content_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#999999"
+        android:visibility="gone"
+        android:textSize="13sp" />
 
     <TextView
         android:id="@id/page_error_retry_view"
